@@ -372,12 +372,20 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/__Scripts/CamFollowDray.cs"
+"Assets/__Scripts/DamageEffect.cs"
 "Assets/__Scripts/Dray.cs"
 "Assets/__Scripts/Enemy.cs"
+"Assets/__Scripts/Grappler.cs"
 "Assets/__Scripts/GridMove.cs"
+"Assets/__Scripts/GuiPanel.cs"
 "Assets/__Scripts/IFacingMover.cs"
+"Assets/__Scripts/IGadget.cs"
+"Assets/__Scripts/IKeyMaster.cs"
 "Assets/__Scripts/InRoom.cs"
+"Assets/__Scripts/ISwappable.cs"
+"Assets/__Scripts/LockedDoor.cs"
 "Assets/__Scripts/MapInfo.cs"
+"Assets/__Scripts/PickUp.cs"
 "Assets/__Scripts/ProtoTools/FloatingScore.cs"
 "Assets/__Scripts/ProtoTools/PT_XMLReader.cs"
 "Assets/__Scripts/ProtoTools/Scoreboard.cs"
@@ -386,6 +394,7 @@
 "Assets/__Scripts/Spiker.cs"
 "Assets/__Scripts/SwordController.cs"
 "Assets/__Scripts/TilemapManager.cs"
+"Assets/__Scripts/TileSwapManager.cs"
 -langversion:9.0
 
 /deterministic

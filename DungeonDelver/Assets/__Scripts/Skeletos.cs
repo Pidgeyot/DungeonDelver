@@ -19,10 +19,12 @@ public class Skeletos : Enemy, IFacingMover
     protected override void Awake () {        
         base.Awake();         
         inRm = GetComponent<InRoom>();     
-        }
+    }
 
-    void Update()
-    {
+    protected override void Update() { 
+        base.Update();                                                    
+        if ( knockback ) return;
+    
         if (Time.time >= timeNextDecision)
         {
             DecideDirection();

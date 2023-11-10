@@ -10,9 +10,11 @@ public class TilemapManager : MonoBehaviour {
     [Header("Inscribed")]
     public Tilemap visualMap;
     public Tilemap collisionMap;
+    public Tilemap grapTilesMap;
 
     private TileBase[] visualTileBaseArray;
     private TileBase[] collTileBaseArray;
+    private TileBase[] grapTileBaseArray;
 
     void Awake() {
         LoadTiles();
@@ -49,11 +51,15 @@ public class TilemapManager : MonoBehaviour {
     }
 
     void ShowTiles() {
+    
         visualTileBaseArray = GetMapTiles();
         visualMap.SetTilesBlock(MapInfo.GET_MAP_BOUNDS(), visualTileBaseArray);
 
         collTileBaseArray = GetCollisionTiles();        
         collisionMap.SetTilesBlock(MapInfo.GET_MAP_BOUNDS(), collTileBaseArray);
+
+        grapTileBaseArray = GetGrapTiles();       
+        grapTilesMap.SetTilesBlock(MapInfo.GET_MAP_BOUNDS(), grapTileBaseArray);
     }
 
     public TileBase[] GetMapTiles() {
@@ -81,7 +87,30 @@ public class TilemapManager : MonoBehaviour {
             for (int x = 0; x < MapInfo.W; x++)
             {
                 tileNum = MapInfo.MAP[x, y];
+
                 tileChar = MapInfo.COLLISIONS[tileNum];
+                tile = COLL_TILE_DICT[tileChar];
+                mapTiles[y * MapInfo.W + x] = tile;
+            }
+        }
+        return mapTiles;
+    }
+
+    /// <summary>
+    /// Use MapInfo.MAP and MapInfo.GRAP_TILES to create a TileBase[] array
+    /// holding the tiles to fill the grapTilesMap Tilemap.
+    /// </summary>
+    /// <returns>The TileBases for grapTilesMap</returns>
+    public TileBase[] GetGrapTiles() {
+        Tile tile;
+        int tileNum;
+        char tileChar;
+        TileBase[] mapTiles = new TileBase[MapInfo.W * MapInfo.H];
+        for (int y = 0; y < MapInfo.H; y++) {
+            for (int x = 0; x < MapInfo.W; x++) {
+                tileNum = MapInfo.MAP[x, y];
+                tileChar = MapInfo.GRAP_TILES[tileNum];
+                if (tileChar == 'U') tileChar = '_';
                 tile = COLL_TILE_DICT[tileChar];
                 mapTiles[y * MapInfo.W + x] = tile;
             }
